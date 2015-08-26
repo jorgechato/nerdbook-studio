@@ -1,0 +1,17 @@
+---
+title:
+- type: main
+  text: My Book
+- type: subtitle
+  text: An investigation of metadata
+creator:
+- role: author
+  text: Jorge Chato
+- role: editor
+  text: Jorge Chato
+identifier:
+- scheme: DOI
+  text: doi:10.234234.234/33
+publisher:  My Press
+rights: © 2015 Jorge Chato, CC BY-NC
+...

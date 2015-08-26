@@ -1,0 +1,21 @@
+{
+  "name": "digitalbook-builder",
+  "version": "1.0.0",
+  "description": "Easy way to create an epub, pdf, mobi, html... writing in latex with the power of Pandoc and KindleGen.",
+  "main": "gulp",
+  "scripts": {
+    "start": "node init.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "orggue",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-open": "^1.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-shell": "^0.4.2",
+    "gulp-util": "^3.0.6",
+    "mkdirp": "^0.5.1"
+  }
+}
