@@ -11,7 +11,10 @@ var tmpMetadata = '.tmp/title.txt';
 var indexHtml = '.tmp/web/index.html';
 
 gulp.task('concat', function() {
-	return gulp.src('book/chapters/*.tex')
+	return gulp.src([
+		'book/metadata/header.tex',
+		'book/chapters/*.tex',
+		'book/metadata/footer.tex'])
 	.pipe(concat('book.tex'))
 	.pipe(rename({
 		suffix: '.full'
@@ -20,7 +23,10 @@ gulp.task('concat', function() {
 });
 
 gulp.task('metadata',function(){
-	return gulp.src('book/title.txt')
+	return gulp.src([
+		'book/title.txt',
+		'book/notes/**/*',
+		'lib/**/*'])
 	.pipe(gulp.dest('.tmp/'));
 });
 
@@ -45,12 +51,12 @@ gulp.task('html', ['concat'], function() {
 });
 
 gulp.task('open', function(){
-  gulp.src(indexHtml)
-  .pipe(open());
+	gulp.src(indexHtml)
+	.pipe(open());
 });
 
 gulp.task('serve',['metadata','concat','html','open'],function(){
-  gulp.watch(rawBook+'/**/*', ['html']);
+	gulp.watch(rawBook+'/**/*', ['html']);
 });
 
 gulp.task('publish',['word','pdf','epub']);
