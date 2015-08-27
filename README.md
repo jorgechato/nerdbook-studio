@@ -15,7 +15,7 @@ This will create the .tmp/ and public/ folder, in the future it will allow you t
 ```zsh
 $ npm start
 ```
-To have a preview of what are you writting just tipe in the console:
+To have a preview of what are you writting just type in the console:
 ```zsh
 $ gulp
 ```
