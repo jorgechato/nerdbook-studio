@@ -11,7 +11,10 @@ var tmpMetadata = '.tmp/title.txt';
 var indexHtml = '.tmp/web/index.html';
 
 gulp.task('concat', function() {
-	return gulp.src('book/chapters/*.tex')
+	return gulp.src([
+		'book/metadata/header.tex',
+		'book/chapters/*.tex',
+		'book/metadata/footer.tex'])
 	.pipe(concat('book.tex'))
 	.pipe(rename({
 		suffix: '.full'
