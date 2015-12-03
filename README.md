@@ -33,7 +33,7 @@ $ gulp publish      # this will create a word, a pdf and a epub
 │   ├── web
 │   │   └── index.html
 │   ├── book.full.tex
-│   └── title.txt
+│   └── title.yaml
 │   └── ...
 ├── book             #Studio directory
 │   ├── chapters     #Folder with all chapters, each chapter in a seperate file
@@ -46,8 +46,10 @@ $ gulp publish      # this will create a word, a pdf and a epub
 │   │   ├── mr.tex
 │   │   ├── notat.tex
 │   │   └── refs.tex
-│   └── title.txt    #Metadata for the epub output
+│   └── title.yaml   #Metadata for the epub output
 ├── gulpfile.js
+├── images           #add as much folders as you want, just remember inject it properly
+│   └── 0.jpg
 ├── init.js
 ├── lib              #External packages
 │   └── styles       #Custom styles
@@ -62,13 +64,22 @@ $ gulp publish      # this will create a word, a pdf and a epub
 ## How to use
 You only need to focus in book/ folder. It is made so you can focus in write your book and nothing else.
 After you install it and run it you can start editing your book.
-First you should change the title.txt, header.tex and footer.tex with your personal information and needs.
+First you should change the title.yaml, header.tex and footer.tex with your personal information and needs.
 In notes/ folder you have some empty files if you want to add a glossary, references... but you can add new files if you want. Make sure if you add new files you had to include it in the file you want it "as you can see in footer.tex". ex:
 ```latex
 \include{glossary} 
 ```
 ### Recommendation
 The chapters are in chapters/ folder, you can add as many as you want. I recomend to rename it starting with the number of the chapter, otherwise can be render in a wrong order. I recomend 3 digits, ex: 001-chaptername.tex, 002-chaptername.tex
+### Add images
+As you know, you can import images in your book typping:
+```latex
+\includegraphics{./images/0.jpg}
+```
+if you want to create different folders to each chapter, create it inside images/ folder and remember import it properly.
+```latex
+\includegraphics{./images/chapter-1/0.jpg}
+```
 ## External packages and custom style
 If you want to add a package do it into /lib folder and remember to add in header.tex:
 ```latex
