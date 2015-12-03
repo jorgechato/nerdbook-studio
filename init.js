@@ -24,7 +24,8 @@ var ms = Box({
   }
 },{
   text: colors.rainbow('>>>')+colors.blue(' Now you have all you need to start your AWESOME book \n')+
-    colors.rainbow('>>>')+colors.blue(' run "gulp" and start the adventure\n\n')+colors.yellow("Remember to check http://jorgechato.com for more fun proyects"),
+    colors.rainbow('>>>')+colors.blue(' run "gulp publish" and start the adventure\n\n')+
+    colors.yellow("Remember to check http://jorgechato.com for more fun projects"),
   stretch: true,
   autoEOL: true,
   vAlign: "center",
