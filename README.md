@@ -94,3 +94,8 @@ You also have a folder styles/ if you want to create your own style. Remember ch
 ```latex
 \usepackage{mystyle} %Create your own file, mystyle.sty where you put all your own \newcommand statements, for example. 
 ```
+## Screenshot
+![config](http://nas.jorgechato.com/git/0.png)
+![init](http://nas.jorgechato.com/git/1.png)
+![pdf](http://nas.jorgechato.com/git/2.png)
+![epub](http://nas.jorgechato.com/git/3.png)
