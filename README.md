@@ -4,6 +4,11 @@ Easy way to create an epub, pdf, mobi, html... writing in markdown with the powe
 + [node](https://nodejs.org/)
 + [pandoc](http://pandoc.org/installing.html)
 
+if you are a linux user, you maybe need to install libnotify-bin to get the
+notifications system.
+```zsh
+$ sudo apt-get install libnotify-bin
+```
 ## Install
 ```zsh
 $ git clone https://github.com/orggue/nerdbook-studio.git
