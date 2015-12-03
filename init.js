@@ -2,7 +2,8 @@ var mkdirp = require('mkdirp');
 var folders = [
 './.tmp/web',
 './public',
-'./lib/styles'
+'./lib/styles',
+'./images'
 ];
 
 folders.forEach(function(folder){

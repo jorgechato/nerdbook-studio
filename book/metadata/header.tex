@@ -1,34 +1,29 @@
-<<<<<<< HEAD
 \documentclass{article}
-
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{hyperref}
 \usepackage{fontspec}
+\usepackage{makeidx}
+\usepackage{minted}
 \setmainfont{Cochin}
-
 \usepackage[papersize={4.5in,6in},margin=0.5cm]{geometry}
 \setlength{\parskip}{2pt}
 
 \usepackage{fourier-orns}
-\newcommand\textbreak{%
-  \begin{center}%
-  \decothreeleft \aldineleft \decosix \aldineright \decothreeright%
+\newcommand\textbreak{
+  \begin{center}
+  \decothreeleft \aldineleft \decosix \aldineright \decothreeright
   \end{center}}
 
 \pagestyle{empty}
 \usepackage[pdfauthor={AUTHOR},pdftitle={TITLE}]{hyperref}
-=======
-\documentclass[ebook,12pt,oneside,openany]{memoir}
-\usepackage[utf8x]{inputenc}
-\usepackage[spanish]{babel}
-\usepackage{titlesec}
 
-\titleformat{\chapter}[display]
-  {\normalfont\huge\bfseries\centering}
-  {\chaptertitlename\ \thechapter}{20pt}{\Huge}
->>>>>>> 27067d6070e7231815408152744ebe9fe5054f88
-
-\begin{document} 
+\makeindex
+\begin{document}
 \maketitle
 
-\author{Jorge Chato} 
-\title{NerdBook Studio} 
-\date{August 2015} 
+\author{Jorge Chato}
+\title{NerdBook Studio}
+\date{August 2015}

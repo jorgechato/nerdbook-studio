@@ -7,8 +7,9 @@ open = require('gulp-open');
 var rawBook = './book/chapters'
 var exportTo = './public/book';
 var exportFrom = '.tmp/book.full.tex';
-var tmpMetadata = '.tmp/title.txt';
+var tmpMetadata = '.tmp/title.yaml';
 var indexHtml = '.tmp/web/index.html';
+var base = '.tmp/';
 
 gulp.task('concat', function() {
 	return gulp.src([
@@ -24,7 +25,7 @@ gulp.task('concat', function() {
 
 gulp.task('metadata',function(){
 	return gulp.src([
-		'book/title.txt',
+		'book/title.yaml',
 		'book/notes/**/*',
 		'lib/**/*'])
 	.pipe(gulp.dest('.tmp/'));
@@ -32,22 +33,22 @@ gulp.task('metadata',function(){
 
 gulp.task('word', ['concat'], function() {
 	return gulp.src(exportFrom, {read: false})
-	.pipe(shell('pandoc -s -S <%= file.path %> -o '+exportTo+'.docx'));
+	.pipe(shell('pandoc -s -S '+base+'<%= file.relative %> -o '+exportTo+'.docx'));
 });
 
 gulp.task('pdf', ['concat'], function() {
 	return gulp.src(exportFrom, {read: false})
-	.pipe(shell('pandoc -s <%= file.path %> -o '+exportTo+'.pdf'));
+	.pipe(shell('pandoc -s '+base+'<%= file.relative %> -o '+exportTo+'.pdf'));
 });
 
 gulp.task('epub', ['metadata', 'concat'], function() {
 	return gulp.src(exportFrom, {read: false})
-	.pipe(shell('pandoc -S -o '+exportTo+'.epub '+tmpMetadata+ ' <%= file.path %>'));
+	.pipe(shell('pandoc -S -o '+exportTo+'.epub '+tmpMetadata+ ' '+base+'<%= file.relative %>'));
 });
 
 gulp.task('html', ['concat'], function() {
 	return gulp.src(exportFrom, {read: false})
-	.pipe(shell('pandoc <%= file.path %> -s -o '+indexHtml));
+	.pipe(shell('pandoc '+base+'<%= file.relative %> -s -o '+indexHtml));
 });
 
 gulp.task('open', function(){
