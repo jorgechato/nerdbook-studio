@@ -38,6 +38,25 @@ $ gulp pdf
 $ gulp epub
 $ gulp publish      # this will create a word, a pdf and a epub
 ```
+## Templates
+You can change the template of your book, in /book/metadata/header.tex
+you can find this lines:
+```latex
+%template choose only one: base, medium or complex
+%you can create your own cover in /templates folder
+
+%\input{.tmp/base}
+\input{.tmp/brain}
+%\input{.tmp/team}
+```
+Comment or uncomment the template you want (default brain template), so that nerd-book can work
+you need only one of this templates activated. You can also custom the
+templates or even create a new one.
+### Examples
++ base
++ brain
++ team
+
 ## Structure
 ```zsh
 .
