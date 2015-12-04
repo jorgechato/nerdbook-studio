@@ -1,30 +1,35 @@
-\documentclass{article}
-\usepackage[utf8x]{inputenc}
-\usepackage[spanish]{babel}
-\usepackage{titlesec}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{hyperref}
-\usepackage{fontspec}
-\usepackage{makeidx}
-\usepackage{minted}
-\setmainfont{Cochin}
-\usepackage[papersize={4.5in,6in},margin=0.5cm]{geometry}
-\setlength{\parskip}{2pt}
+%\documentclass[12pt,a4paper]{report}
+\documentclass[a4paper,oneside]{report}
 
-\usepackage{fourier-orns}
-\newcommand\textbreak{
-  \begin{center}
-  \decothreeleft \aldineleft \decosix \aldineright \decothreeright
-  \end{center}}
+%\usepackage[utf8x]{inputenc}
+%\usepackage[spanish, es-tabla]{babel} %language
+\usepackage[english]{babel}
+\usepackage{amsmath} %math
+\usepackage{mathenv}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{textcomp}
+\usepackage{minted} %write code
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{pifont}
+\usepackage{changepage}
+\usepackage{listings}
+\usepackage{url} %links
+\usepackage{xspace}
+\usepackage{xtab}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{graphicx} %for embedding images
+\usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0}, pdftitle={<pdf title here>}, pdfauthor={<author's name here>}, pdfsubject={<subject here>}, pdfkeywords={<keywords here>}]{hyperref} %for creating links in the pdf version and other additional pdf attributes, no effect on the printed document
+\DeclareGraphicsExtensions{.pdf}
+\usepackage{imakeidx}
+\makeindex[columns=3, title=Alphabetical Index, intoc]
 
-\pagestyle{empty}
-\usepackage[pdfauthor={AUTHOR},pdftitle={TITLE}]{hyperref}
+%template choose only one: base, medium or complex
+%you can create your own cover in /templates folder
 
-\makeindex
-\begin{document}
-\maketitle
+%\input{.tmp/base}
+\input{.tmp/medium}
+%\input{.tmp/complex}
 
-\author{Jorge Chato}
-\title{NerdBook Studio}
-\date{August 2015}

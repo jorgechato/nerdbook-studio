@@ -16,7 +16,6 @@
     "gulp-concat": "^2.6.0",
     "gulp-notify": "^2.2.0",
     "gulp-open": "^1.0.0",
-    "gulp-rename": "^1.2.2",
     "gulp-shell": "^0.4.2",
     "gulp-util": "^3.0.6",
     "mkdirp": "^0.5.1",

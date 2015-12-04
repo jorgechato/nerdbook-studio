@@ -9,6 +9,11 @@ notifications system.
 ```zsh
 $ sudo apt-get install libnotify-bin
 ```
+## Download
+```zsh
+$ git clone https://github.com/orggue/nerdbook-studio.git
+```
+or download the .zip file [from here](https://github.com/orggue/nerdbook-studio/archive/master.zip).
 ## Install
 ```zsh
 $ git clone https://github.com/orggue/nerdbook-studio.git
