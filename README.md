@@ -38,6 +38,12 @@ $ gulp pdf
 $ gulp epub
 $ gulp publish      # this will create a word, a pdf and a epub
 ```
+You can change the default language in /book/metadata/header.tex
+```latex
+\usepackage[spanish, es-tabla]{babel} %language
+
+%\usepackage[english]{babel}
+```
 ## Templates
 You can change the template of your book, in /book/metadata/header.tex
 you can find this lines:
@@ -53,9 +59,9 @@ Comment or uncomment the template you want (default brain template), so that ner
 you need only one of this templates activated. You can also custom the
 templates or even create a new one.
 ### Examples
-+ base
-+ brain
-+ team
++ [base](https://github.com/orggue/nerdbook-studio/blob/master/examples/base.pdf)
++ [brain](https://github.com/orggue/nerdbook-studio/blob/master/examples/brain.pdf)
++ [team](https://github.com/orggue/nerdbook-studio/blob/master/examples/team.pdf)
 
 ## Structure
 ```zsh
@@ -118,7 +124,8 @@ If you want to add a package do it into /lib folder and remember to add in heade
 ```
 You also have a folder styles/ if you want to create your own style. Remember checking header.tex:
 ```latex
-\usepackage{mystyle} %Create your own file, mystyle.sty where you put all your own \newcommand statements, for example. 
+%Create your own file, mystyle.sty where you put all your own \newcommand statements, for example.
+\usepackage{mystyle}
 ```
 ## Screenshot
 ![config](http://nas.jorgechato.com/git/0.png)
