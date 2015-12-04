@@ -2,6 +2,8 @@
 Easy way to create an epub, pdf, mobi, html... writing in markdown with the power of Pandoc and KindleGen.
 ## Dependencies
 + [node](https://nodejs.org/)
+
+If you only want to convert to PDF you don't need pandoc
 + [pandoc](http://pandoc.org/installing.html)
 
 if you are a linux user, you maybe need to install libnotify-bin to get the
@@ -17,7 +19,7 @@ or download the .zip file [from here](https://github.com/orggue/nerdbook-studio/
 ## Install
 ```zsh
 $ git clone https://github.com/orggue/nerdbook-studio.git
-$ cd nerdbook-studio
+$ cd nerdbook-studio & rm -rf .git/ & rm .gitignore
 $ npm install
 ```
 ## Run
