@@ -40,10 +40,10 @@ $ gulp publish      # this will create a word, a pdf and a epub
 ```
 ## Templates
 Now with the update (2015-12-09) you have a cool interactive menu to choose the name of the final book, language, write a pdf/word or an ebook and the layout of your project.
-![config](http://nas.jorgechato.com/git/NBS/0.png)
-![init](http://nas.jorgechato.com/git/NBS/1.png)
-![pdf](http://nas.jorgechato.com/git/NBS/2.png)
-![epub](http://nas.jorgechato.com/git/NBS/3.png)
+![config](http://nas.jorgechato.com/git/NBS/4.png)
+![init](http://nas.jorgechato.com/git/NBS/5.png)
+![pdf](http://nas.jorgechato.com/git/NBS/6.png)
+![epub](http://nas.jorgechato.com/git/NBS/7.png)
 ### Examples
 + [base](https://github.com/orggue/nerdbook-studio/blob/master/examples/base.pdf)
 + [brain](https://github.com/orggue/nerdbook-studio/blob/master/examples/brain.pdf)
