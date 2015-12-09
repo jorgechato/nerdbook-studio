@@ -47,15 +47,7 @@ gulp.task('pdf', ['metadata','concat'], function() {
     message : "POW!! your pdf has been created in "+exportTo+'.pdf'}));
 });
 
-gulp.task('epub', ['metadata', 'concat'], function() {
-  return gulp.src(exportFrom, {read: false})
-  .pipe(shell('pandoc -S -o '+base+'<%= file.relative %>.epub '+tmpMetadata+ ' '+base+'<%= file.relative %>'))
-  //.pipe(shell('htlatex .tmp/book.tex "html,charset=utf-8" " -cunihtf -utf8" "" " -shell-escape -output-directory=public/ebook"'))
-  .pipe(notify({
-    message : "POW!! your ebook has been created in "+exportTo+'.epub'}));
-});
-
-gulp.task('publish',['word','pdf','epub'],function(){
+gulp.task('publish',['word','pdf'],function(){
   return gulp.src(exportTo+".*")
   .pipe(notify({
     message : "POW!! your book has been published in public/<%= file.relative %>"}));

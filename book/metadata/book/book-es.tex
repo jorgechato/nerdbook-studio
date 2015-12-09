@@ -1,29 +1,16 @@
 \documentclass[ebook,12pt,oneside,openany]{memoir}
 
 \usepackage[spanish, es-tabla]{babel} %language
-\usepackage{amsmath} %math
-\usepackage{mathenv}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{textcomp}
-\usepackage{minted} %write code
-\usepackage{longtable}
-\usepackage{multirow}
-\usepackage{pifont}
-\usepackage{changepage}
-\usepackage{listings}
+\usepackage[html]{tex4ht}
 \usepackage{url} %links
-\usepackage{xspace}
-\usepackage{xtab}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage[dvips]{color,graphicx}
-\usepackage[tex4ht]{hyperref}
 \usepackage{imakeidx}
 \makeindex[columns=3, title=Alphabetical Index, intoc]
-\setlength{\parskip}{2pt}
-
-\pagestyle{empty}
+%I should check this packages
+\usepackage{changepage}
+%\usepackage[dvips]{graphicx}
+%\usepackage[dvips]{epsfig}
+\usepackage{changepage}
 
 \author{Jorge Chato}
 \title{NerdBook Studio}
@@ -31,4 +18,3 @@
 
 \begin{document}
 \maketitle
-\tableofcontents

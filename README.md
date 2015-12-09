@@ -35,11 +35,12 @@ Some of the outputs:
 ```zsh
 $ gulp word
 $ gulp pdf
-$ gulp epub
+$ gulp ebook        # publish into .epub and .mob
 $ gulp publish      # this will create a word, a pdf and a epub
 ```
 ## Templates
 Now with the update (2015-12-09) you have a cool interactive menu to choose the name of the final book, language, write a pdf/word or an ebook and the layout of your project.
+
 ![config](http://nas.jorgechato.com/git/NBS/4.png)
 ![init](http://nas.jorgechato.com/git/NBS/5.png)
 ![pdf](http://nas.jorgechato.com/git/NBS/6.png)

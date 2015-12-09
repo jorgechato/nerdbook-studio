@@ -7,8 +7,7 @@ jsonfile = require('jsonfile'),
 inquirer = require("inquirer");
 
 var folders = [
-  './.tmp/web',
-  './.tmp/book',
+  './.tmp',
   './public',
   './lib/styles'
 ];
@@ -156,7 +155,14 @@ var prepareFiles = function(){
     shell.mv(base.book+config.Type+"-"+config.Language+".tex",base.meta);
     shell.mv(base.meta+config.Type+"-"+config.Language+".tex",base.template);
   }
-  shell.rm("-rf",[base.article,base.book])
+  if(config.Type === "book"){
+    shell.mv("book.js","gulpfile.js");
+    shell.rm("article.js");
+  }else{
+    shell.mv("article.js","gulpfile.js");
+    shell.rm("book.js");
+  }
+  shell.rm("-rf",[base.article,base.book]);
   return output();
 }
 
@@ -179,8 +185,6 @@ var output = function(){
       shell.echo(colors.red('>> You had to install GULP\nRun "npm install -g gulp"'));
       allInstalled = false;
     }
-    //shell.rm('-rf', './init.js');
-    //TODO:remove shell.exit
     shell.exit(1);
     if(allInstalled){
       notifier.notify({
@@ -191,6 +195,7 @@ var output = function(){
       }, function (err, response) {
       });
       console.log(ms);
+      shell.rm('-rf', './init.js');
     }
   }
 }
