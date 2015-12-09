@@ -1,0 +1,81 @@
+\documentclass[a4paper,oneside]{report}
+
+\usepackage[english]{babel}
+\usepackage{amsmath} %math
+\usepackage{mathenv}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{textcomp}
+\usepackage{minted} %write code
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{pifont}
+\usepackage{changepage}
+\usepackage{listings}
+\usepackage{url} %links
+\usepackage{xspace}
+\usepackage{xtab}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{graphicx} %for embedding images
+\usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0}, pdftitle={<pdf title here>}, pdfauthor={<author's name here>}, pdfsubject={<subject here>}, pdfkeywords={<keywords here>}]{hyperref} %for creating links in the pdf version and other additional pdf attributes, no effect on the printed document
+\DeclareGraphicsExtensions{.pdf}
+\usepackage{imakeidx}
+\makeindex[columns=3, title=Alphabetical Index, intoc]
+
+\begin{document}
+\renewcommand\refname{References} %Renames "Bibliography" to "References" on ref page
+
+%include other pages
+\begin{titlepage}
+
+\begin{center}
+
+\textup{\small {\bf CSU498 Project} \\ Report}\\[0.2in]
+
+% Title
+\Large \textbf {<Title here>}\\[0.5in]
+
+       \small \emph{Submitted in partial fulfillment of\\
+        the requirements for the award of the degree of}
+        \vspace{.2in}
+
+       {\bf Bachelor of Technology \\in\\ Computer Science and Engineering}\\[0.5in]
+
+% Submitted by
+\normalsize Submitted by \\
+\begin{table}[h]
+\centering
+\begin{tabular}{lr}\hline \\
+Roll No & Names of Students \\ \\ \hline
+\\
+<Roll no here> & <Name here> \\
+<Roll no here> & <Name here> \\
+<Roll no here> & <Name here> \\ \\ \hline
+\end{tabular}
+\end{table}
+
+\vspace{.1in}
+Under the guidance of\\
+{\textbf{<Guide's name here>}}\\[0.2in]
+
+\vfill
+
+% Bottom of the page
+\includegraphics[width=0.18\textwidth]{images/logo.png}\\[0.1in]
+\Large{Department of Computer Science and Engineering}\\
+\normalsize
+\textsc{National Institute of Technology Calicut}\\
+Calicut, Kerala, India -- 673 601 \\
+\vspace{0.2cm}
+Winter Semester 2013
+
+\end{center}
+
+\end{titlepage}
+
+\tableofcontents
+\listoffigures
+
+\newpage
+\pagenumbering{arabic} %reset numbering to normal for the main content

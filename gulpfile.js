@@ -7,17 +7,18 @@ open = require('gulp-open');
 var rawBook = './book/chapters'
 var exportTo = './public/book';
 var outputDir= './public';
-var exportFrom = '.tmp/book.tex';
 var tmpMetadata = '.tmp/title.yaml';
 var indexHtml = '.tmp/web/index.html';
 var base = '.tmp/';
+var book = './config.json';
+var exportFrom = '.tmp/'+book.Name+'.tex';
 
 gulp.task('concat', function() {
   return gulp.src([
     'book/metadata/header.tex',
     'book/chapters/*.tex',
     'book/metadata/footer.tex'])
-    .pipe(concat('book.tex'))
+    .pipe(concat(book.Name+'.tex'))
     .pipe(gulp.dest('.tmp/'));
 });
 
@@ -41,7 +42,7 @@ gulp.task('pdf', ['metadata','concat'], function() {
   return gulp.src(exportFrom, {read: false})
   //.pipe(shell('pandoc -s '+base+'<%= file.relative %> --latex-engine=xelatex -o '+exportTo+'.pdf'))
   .pipe(shell('pdflatex -shell-escape -output-directory='+outputDir+' -output-format=pdf '+base+'<%= file.relative %>'))
-  .pipe(shell('mkdir -p public/tmp && mv ./public/*.pdf ./public/tmp && rm public/*.* && mv ./public/tmp/*.pdf ./public && rmdir ./public/tmp'))
+  .pipe(shell('mkdir -p public/tmp && mv ./public/*.pdf ./public/tmp && rm public/*.* && mv ./public/tmp/*.pdf ./public && rmdir ./public/tmp && rm *.pyg'))
   .pipe(notify({
     message : "POW!! your pdf has been created in "+exportTo+'.pdf'}));
 });

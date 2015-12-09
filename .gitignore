@@ -30,3 +30,4 @@ public
 .tmp
 
 # Config variables
+config.json

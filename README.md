@@ -25,7 +25,7 @@ $ npm install
 ## Run
 This will create the .tmp/ and public/ folder, in the future it will allow you to choose the input file between markdown, latex ... and some global variables. 
 ```zsh
-$ npm start
+$ node init.js
 ```
 To have a preview of what are you writting just type in the console:
 ```zsh
@@ -38,26 +38,12 @@ $ gulp pdf
 $ gulp epub
 $ gulp publish      # this will create a word, a pdf and a epub
 ```
-You can change the default language in /book/metadata/header.tex
-```latex
-\usepackage[spanish, es-tabla]{babel} %language
-
-%\usepackage[english]{babel}
-```
 ## Templates
-You can change the template of your book, in /book/metadata/header.tex
-you can find this lines:
-```latex
-%template choose only one: base, medium or complex
-%you can create your own cover in /templates folder
-
-%\input{.tmp/base}
-\input{.tmp/brain}
-%\input{.tmp/team}
-```
-Comment or uncomment the template you want (default brain template), so that nerd-book can work
-you need only one of this templates activated. You can also custom the
-templates or even create a new one.
+Now with the update (2015-12-09) you have a cool interactive menu to choose the name of the final book, language, write a pdf/word or an ebook and the layout of your project.
+![config](http://nas.jorgechato.com/git/NBS/0.png)
+![init](http://nas.jorgechato.com/git/NBS/1.png)
+![pdf](http://nas.jorgechato.com/git/NBS/2.png)
+![epub](http://nas.jorgechato.com/git/NBS/3.png)
 ### Examples
 + [base](https://github.com/orggue/nerdbook-studio/blob/master/examples/base.pdf)
 + [brain](https://github.com/orggue/nerdbook-studio/blob/master/examples/brain.pdf)
@@ -128,7 +114,7 @@ You also have a folder styles/ if you want to create your own style. Remember ch
 \usepackage{mystyle}
 ```
 ## Screenshot
-![config](http://nas.jorgechato.com/git/0.png)
-![init](http://nas.jorgechato.com/git/1.png)
-![pdf](http://nas.jorgechato.com/git/2.png)
-![epub](http://nas.jorgechato.com/git/3.png)
+![config](http://nas.jorgechato.com/git/NBS/0.png)
+![init](http://nas.jorgechato.com/git/NBS/1.png)
+![pdf](http://nas.jorgechato.com/git/NBS/2.png)
+![epub](http://nas.jorgechato.com/git/NBS/3.png)

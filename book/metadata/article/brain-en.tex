@@ -1,8 +1,6 @@
 \documentclass[a4paper,oneside]{report}
 
-%\usepackage[utf8x]{inputenc}
-\usepackage[spanish, es-tabla]{babel} %language
-%\usepackage[english]{babel}
+\usepackage[english]{babel}
 \usepackage{amsmath} %math
 \usepackage{mathenv}
 \usepackage{amssymb}
@@ -19,21 +17,51 @@
 \usepackage{xtab}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-%\@ifpackageloaded{tex4ht}{
-%\usepackage[dvips]{color,graphicx}
-%\usepackage[tex4ht]{hyperref}
-%}{
 \usepackage[pdftex]{graphicx} %for embedding images
 \usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0}, pdftitle={<pdf title here>}, pdfauthor={<author's name here>}, pdfsubject={<subject here>}, pdfkeywords={<keywords here>}]{hyperref} %for creating links in the pdf version and other additional pdf attributes, no effect on the printed document
 \DeclareGraphicsExtensions{.pdf}
-%}
 \usepackage{imakeidx}
 \makeindex[columns=3, title=Alphabetical Index, intoc]
 
-%template choose only one: base, medium or complex
-%you can create your own cover in /templates folder
+\begin{document}
 
-\input{.tmp/base}
-%\input{.tmp/brain}
-%\input{.tmp/team}
+\pagestyle{plain}
+\pagenumbering{arabic}
 
+% Front matter
+
+{\pagestyle{empty}
+\changepage{5cm}{1cm}{-0.5cm}{-0.5cm}{}{-2cm}{}{}{}
+\noindent
+{\small
+\begin{tabular}{p{0.75\textwidth} p{0.75\textwidth}}
+\textit{Campus Teruel}&\multirow{4}{*}{\includegraphics[width=5cm]{./images/logo.png}}\\
+\textit{Ingeniería Informática}\\
+\textit{Práctica número: 1}\\
+\end{tabular}}
+
+\begin{center}
+
+\par\vspace {7cm}
+
+{\Huge\textbf{NerdBook Studio}}
+
+\par\vspace {0.5cm}
+
+{\Large\textbf{Centered Subtitle Times Font Size 16 Bold}}
+
+\par\vspace {3cm}
+
+{\Large\textbf{FirstName LastName}}
+\par\vspace {7cm}
+
+\end{center}
+
+\noindent%
+{\small Dept. Computer Science \& Engineering \\
+Blekinge Institute of Technology\\
+SE--371 79 Karlskrona, Sweden}
+
+\clearpage
+}
+\tableofcontents
