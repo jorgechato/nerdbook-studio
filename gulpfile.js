@@ -41,29 +41,17 @@ gulp.task('pdf', ['metadata','concat'], function() {
   return gulp.src(exportFrom, {read: false})
   //.pipe(shell('pandoc -s '+base+'<%= file.relative %> --latex-engine=xelatex -o '+exportTo+'.pdf'))
   .pipe(shell('pdflatex -shell-escape -output-directory='+outputDir+' -output-format=pdf '+base+'<%= file.relative %>'))
+  .pipe(shell('mkdir -p public/tmp && mv ./public/*.pdf ./public/tmp && rm public/*.* && mv ./public/tmp/*.pdf ./public && rmdir ./public/tmp'))
   .pipe(notify({
     message : "POW!! your pdf has been created in "+exportTo+'.pdf'}));
 });
 
 gulp.task('epub', ['metadata', 'concat'], function() {
   return gulp.src(exportFrom, {read: false})
-  .pipe(shell('pandoc -S -o '+base+'<%= file.relative %> '+tmpMetadata+ ' '+base+'<%= file.relative %>'))
+  .pipe(shell('pandoc -S -o '+base+'<%= file.relative %>.epub '+tmpMetadata+ ' '+base+'<%= file.relative %>'))
+  //.pipe(shell('htlatex .tmp/book.tex "html,charset=utf-8" " -cunihtf -utf8" "" " -shell-escape -output-directory=public/ebook"'))
   .pipe(notify({
     message : "POW!! your ebook has been created in "+exportTo+'.epub'}));
-});
-
-gulp.task('html', ['metadata','concat'], function() {
-  return gulp.src(exportFrom, {read: false})
-  .pipe(shell('pandoc '+base+'<%= file.relative %> -s -o '+indexHtml));
-});
-
-gulp.task('open', function(){
-  gulp.src(indexHtml)
-  .pipe(open());
-});
-
-gulp.task('serve',['metadata','concat','html','open'],function(){
-  gulp.watch(rawBook+'/**/*', ['html']);
 });
 
 gulp.task('publish',['word','pdf','epub'],function(){
@@ -71,4 +59,4 @@ gulp.task('publish',['word','pdf','epub'],function(){
   .pipe(notify({
     message : "POW!! your book has been published in public/<%= file.relative %>"}));
 });
-gulp.task('default',['serve']);
+gulp.task('default',['publish']);
