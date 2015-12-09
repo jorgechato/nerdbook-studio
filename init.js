@@ -60,7 +60,7 @@ setTimeout(function(){
 },50);
 
 setTimeout(function(){
-  shell.rm('-rf',base.root+'examples');
+  shell.rm('-rf',[base.root+'examples',".git",".gitignore"]);
 },55);
 
 start();

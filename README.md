@@ -2,9 +2,11 @@
 Easy way to create an epub, pdf, mobi, html... writing in markdown with the power of Pandoc and KindleGen.
 ## Dependencies
 + [node](https://nodejs.org/)
++ [LATEX](https://latex-project.org/ftp.html)
++ [TeX4ht/htlatex](https://www.tug.org/applications/tex4ht/mn.html)
 
-If you only want to convert to PDF you don't need pandoc
-+ [pandoc](http://pandoc.org/installing.html)
+[Pandoc](http://pandoc.org/installing.html) is only required to create
+.word files but I'm currently working on removing it. You don't need it if you don't want to create .word files
 
 if you are a linux user, you maybe need to install libnotify-bin to get the
 notifications system.
@@ -19,7 +21,7 @@ or download the .zip file [from here](https://github.com/orggue/nerdbook-studio/
 ## Install
 ```zsh
 $ git clone https://github.com/orggue/nerdbook-studio.git
-$ cd nerdbook-studio && rm -rf .git/ && rm .gitignore
+$ cd nerdbook-studio
 $ npm install
 ```
 ## Run
@@ -34,10 +36,13 @@ $ gulp
 Some of the outputs:
 ```zsh
 $ gulp word
-$ gulp pdf
-$ gulp ebook        # publish into .epub and .mobi
-$ gulp publish      # this will create a word, a pdf and a epub
+$ gulp pdf          # only available in Article environment
+$ gulp ebook        # only available in Book environment
+$ gulp publish
 ```
+*gulp publish* generate all outputs depending on which environment did you
+choose. **Article** will generate (.pdf and .word), **Book** (.epub, .mobi and
+.word).
 ## Templates
 Now with the update (2015-12-09) you have a cool interactive menu to choose the name of the final book, language, write a pdf/word or an ebook and the layout of your project.
 
