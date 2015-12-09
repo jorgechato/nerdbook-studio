@@ -185,7 +185,6 @@ var output = function(){
       shell.echo(colors.red('>> You had to install GULP\nRun "npm install -g gulp"'));
       allInstalled = false;
     }
-    shell.exit(1);
     if(allInstalled){
       notifier.notify({
         title: 'READY',

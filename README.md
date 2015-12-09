@@ -19,7 +19,7 @@ or download the .zip file [from here](https://github.com/orggue/nerdbook-studio/
 ## Install
 ```zsh
 $ git clone https://github.com/orggue/nerdbook-studio.git
-$ cd nerdbook-studio & rm -rf .git/ & rm .gitignore
+$ cd nerdbook-studio && rm -rf .git/ && rm .gitignore
 $ npm install
 ```
 ## Run
@@ -35,7 +35,7 @@ Some of the outputs:
 ```zsh
 $ gulp word
 $ gulp pdf
-$ gulp ebook        # publish into .epub and .mob
+$ gulp ebook        # publish into .epub and .mobi
 $ gulp publish      # this will create a word, a pdf and a epub
 ```
 ## Templates
