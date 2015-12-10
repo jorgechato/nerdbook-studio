@@ -10,7 +10,7 @@ var outputDir= './public';
 var tmpMetadata = '.tmp/title.yaml';
 var indexHtml = '.tmp/web/index.html';
 var base = '.tmp/';
-var book = './config.json';
+var book = require('./config.json');
 var exportFrom = '.tmp/'+book.Name+'.tex';
 
 gulp.task('concat', function() {
@@ -40,7 +40,6 @@ gulp.task('word', ['metadata','concat'], function() {
 
 gulp.task('pdf', ['metadata','concat'], function() {
   return gulp.src(exportFrom, {read: false})
-  //.pipe(shell('pandoc -s '+base+'<%= file.relative %> --latex-engine=xelatex -o '+exportTo+'.pdf'))
   .pipe(shell('pdflatex -shell-escape -output-directory='+outputDir+' -output-format=pdf '+base+'<%= file.relative %>'))
   .pipe(shell('mkdir -p public/tmp && mv ./public/*.pdf ./public/tmp && rm public/*.* && mv ./public/tmp/*.pdf ./public && rmdir ./public/tmp && rm *.pyg'))
   .pipe(notify({

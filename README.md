@@ -1,9 +1,10 @@
 # NerdBook Studio
-Easy way to create an epub, pdf, mobi, html... writing in markdown with the power of Pandoc and KindleGen.
+Easy way to create an epub, pdf, mobi, word... writing in LATEX.
 ## Dependencies
 + [node](https://nodejs.org/)
 + [LATEX](https://latex-project.org/ftp.html)
-+ [TeX4ht/htlatex](https://www.tug.org/applications/tex4ht/mn.html)
++ [TeX4ht/htlatex (only for ebook)](https://www.tug.org/applications/tex4ht/mn.html)
++ [Calibre (only for ebook)](http://calibre-ebook.com/)
 
 [Pandoc](http://pandoc.org/installing.html) is only required to create
 .word files but I'm currently working on removing it. You don't need it if you don't want to create .word files
@@ -29,15 +30,16 @@ This will create the .tmp/ and public/ folder, in the future it will allow you t
 ```zsh
 $ node init.js
 ```
-To have a preview of what are you writting just type in the console:
+To publish your book just type in the console:
 ```zsh
 $ gulp
 ```
-Some of the outputs:
+If you only need some of the outputs and not all of them here you have a selection of what can you do:
 ```zsh
 $ gulp word
 $ gulp pdf          # only available in Article environment
-$ gulp ebook        # only available in Book environment
+$ gulp epub         # only available in Book environment
+$ gulp mobi         # only available in Book environment
 $ gulp publish
 ```
 *gulp publish* generate all outputs depending on which environment did you

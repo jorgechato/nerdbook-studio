@@ -8,9 +8,8 @@ var rawBook = './book/chapters'
 var exportTo = './public/book';
 var outputDir= './public';
 var tmpMetadata = '.tmp/title.yaml';
-var indexHtml = '.tmp/web/index.html';
 var base = '.tmp/';
-var book = './config.json';
+var book = require('./config.json');
 var exportFrom = '.tmp/'+book.Name+'.tex';
 
 gulp.task('concat', function() {
@@ -38,15 +37,21 @@ gulp.task('word', ['metadata','concat'], function() {
     message : "POW!! your word has been created in "+exportTo+'.docx'}));
 });
 
-gulp.task('ebook', ['metadata', 'concat'], function() {
+gulp.task('epub', ['metadata', 'concat'], function() {
   return gulp.src(exportFrom, {read: false})
-  //.pipe(shell('pandoc -S -o '+base+'<%= file.relative %>.epub '+tmpMetadata+ ' '+base+'<%= file.relative %>'))
-  .pipe(shell('cd .tmp && htlatex '+book.Name+'.tex "html,mathplayer,charset=utf-8" " -cunihtf -utf8" "" " -shell-escape" && ebook-convert '+book.Name+'.html '+book.Name+'.epub && ebook-convert '+book.Name+'.html '+book.Name+'.mobi && mv *.epub ../public && mv *.mobi ../public && cd ./..'))
+  .pipe(shell('cd .tmp && htlatex '+book.Name+'.tex "html,mathplayer,charset=utf-8" " -cunihtf -utf8" "" " -shell-escape" && ebook-convert '+book.Name+'.html '+book.Name+'.epub && mv *.epub ../public && cd ./..'))
   .pipe(notify({
     message : "POW!! your ebook has been created in "+exportTo+'.epub'}));
 });
 
-gulp.task('publish',['word','epub'],function(){
+gulp.task('mobi', ['metadata', 'concat'], function() {
+  return gulp.src(exportFrom, {read: false})
+  .pipe(shell('cd .tmp && htlatex '+book.Name+'.tex "html,mathplayer,charset=utf-8" " -cunihtf -utf8" "" " -shell-escape" && ebook-convert '+book.Name+'.html '+book.Name+'.mobi && mv *.mobi ../public && cd ./..'))
+  .pipe(notify({
+    message : "POW!! your ebook has been created in "+exportTo+'.epub'}));
+});
+
+gulp.task('publish',['word','epub','mobi'],function(){
   return gulp.src(exportTo+".*")
   .pipe(notify({
     message : "POW!! your book has been published in public/<%= file.relative %>"}));
