@@ -4,11 +4,8 @@ concat = require('gulp-concat'),
 notify = require("gulp-notify"),
 open = require('gulp-open');
 
-var rawBook = './book/chapters'
 var exportTo = './public/book';
 var outputDir= './public';
-var tmpMetadata = '.tmp/title.yaml';
-var indexHtml = '.tmp/web/index.html';
 var base = '.tmp/';
 var book = require('./config.json');
 var exportFrom = '.tmp/'+book.Name+'.tex';

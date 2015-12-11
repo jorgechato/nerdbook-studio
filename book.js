@@ -4,10 +4,9 @@ concat = require('gulp-concat'),
 notify = require("gulp-notify"),
 open = require('gulp-open');
 
-var rawBook = './book/chapters'
 var exportTo = './public/book';
 var outputDir= './public';
-var tmpMetadata = '.tmp/title.yaml';
+var metadata = 'title.opf';
 var base = '.tmp/';
 var book = require('./config.json');
 var exportFrom = '.tmp/'+book.Name+'.tex';
@@ -23,7 +22,7 @@ gulp.task('concat', function() {
 
 gulp.task('metadata',function(){
   return gulp.src([
-    'book/title.yaml',
+    'book/title.opf',
     'book/notes/**/*',
     'book/metadata/templates/*',
     'lib/**/*'])
@@ -39,14 +38,14 @@ gulp.task('word', ['metadata','concat'], function() {
 
 gulp.task('epub', ['metadata', 'concat'], function() {
   return gulp.src(exportFrom, {read: false})
-  .pipe(shell('cd .tmp && htlatex '+book.Name+'.tex "html,mathplayer,charset=utf-8" " -cunihtf -utf8" "" " -shell-escape" && ebook-convert '+book.Name+'.html '+book.Name+'.epub --cover ../images/cover.png -m title.opf && mv *.epub ../public && cd ./..'))
+  .pipe(shell('cd .tmp && htlatex '+book.Name+'.tex "html,mathplayer,charset=utf-8" " -cunihtf -utf8" "" " -shell-escape" && ebook-convert '+book.Name+'.html '+book.Name+'.epub --cover ../images/cover.png -m '+metadata+' && mv *.epub ../public && cd ./..'))
   .pipe(notify({
     message : "POW!! your ebook has been created in "+exportTo+'.epub'}));
 });
 
 gulp.task('mobi', ['metadata', 'concat'], function() {
   return gulp.src(exportFrom, {read: false})
-  .pipe(shell('cd .tmp && htlatex '+book.Name+'.tex "html,mathplayer,charset=utf-8" " -cunihtf -utf8" "" " -shell-escape" && ebook-convert '+book.Name+'.html '+book.Name+'.mobi --cover ../images/cover.png -m title.opf && mv *.mobi ../public && cd ./..'))
+  .pipe(shell('cd .tmp && htlatex '+book.Name+'.tex "html,mathplayer,charset=utf-8" " -cunihtf -utf8" "" " -shell-escape" && ebook-convert '+book.Name+'.html '+book.Name+'.mobi --cover ../images/cover.png -m '+metadata+' && mv *.mobi ../public && cd ./..'))
   .pipe(notify({
     message : "POW!! your ebook has been created in "+exportTo+'.epub'}));
 });
