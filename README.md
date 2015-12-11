@@ -26,7 +26,7 @@ $ cd nerdbook-studio
 $ npm install
 ```
 ## Run
-This will create the .tmp/ and public/ folder, in the future it will allow you to choose the input file between markdown, latex ... and some global variables. 
+This will create the .tmp/ and public/ folder, in the future it will allow you to choose the input file between markdown, latex ... and some global variables.
 ```zsh
 $ node init.js
 ```
@@ -45,6 +45,7 @@ $ gulp publish
 *gulp publish* generate all outputs depending on which environment did you
 choose. **Article** will generate (.pdf and .word), **Book** (.epub, .mobi and
 .word).
+*UPDATE: 2015-12-11* PDF output file working properly, I still working on .epub and .mobi to work with images, math and Spanish language.
 ## Templates
 Now with the update (2015-12-09) you have a cool interactive menu to choose the name of the final book, language, write a pdf/word or an ebook and the layout of your project.
 
@@ -61,10 +62,8 @@ Now with the update (2015-12-09) you have a cool interactive menu to choose the 
 ```zsh
 .
 ├── .tmp            #Temporal files folder
-│   ├── web
-│   │   └── index.html
-│   ├── book.full.tex
-│   └── title.yaml
+│   ├── book.tex
+│   ├── title.opf
 │   └── ...
 ├── book             #Studio directory
 │   ├── chapters     #Folder with all chapters, each chapter in a seperate file
@@ -77,17 +76,19 @@ Now with the update (2015-12-09) you have a cool interactive menu to choose the 
 │   │   ├── mr.tex
 │   │   ├── notat.tex
 │   │   └── refs.tex
-│   └── title.yaml   #Metadata for the epub output
+│   └── title.opf    #Metadata for the ebook output
 ├── gulpfile.js
 ├── images           #add as much folders as you want, just remember inject it properly
 │   └── 0.jpg
-├── init.js
+├── init.js          #This file will be removed in the installation
 ├── lib              #External packages
 │   └── styles       #Custom styles
 ├── package.json
+├── config.json
 ├── public           #output folder
 │   ├── book.docx
 │   ├── book.epub
+│   ├── book.mobi
 │   └── book.pdf
 └── README.md
 
@@ -95,13 +96,17 @@ Now with the update (2015-12-09) you have a cool interactive menu to choose the 
 ## How to use
 You only need to focus in book/ folder. It is made so you can focus in write your book and nothing else.
 After you install it and run it you can start editing your book.
-First you should change the title.yaml, header.tex and footer.tex with your personal information and needs.
+First you should change the title.opf with your personal information metadata.
 In notes/ folder you have some empty files if you want to add a glossary, references... but you can add new files if you want. Make sure if you add new files you had to include it in the file you want it "as you can see in footer.tex". ex:
 ```latex
-\include{glossary} 
+\include{glossary}
 ```
 ### Recommendation
-The chapters are in chapters/ folder, you can add as many as you want. I recomend to rename it starting with the number of the chapter, otherwise can be render in a wrong order. I recomend 3 digits, ex: 001-chaptername.tex, 002-chaptername.tex
+The chapters are in book/chapters/ folder, you can add as many as you
+want. I recomend to rename it starting with the number of the chapter,
+otherwise can be render in a wrong order. I recomend 3 digits, ex:
+001-chaptername.tex, 002-chaptername.tex. Then you can name the chapter
+as you want inside the file.
 ### Add images
 As you know, you can import images in your book typping:
 ```latex

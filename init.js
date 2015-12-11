@@ -109,7 +109,6 @@ function start(){
         var layout = answer.layout === "Base (bones layout so you can create your own)" ? "base" : (answer.layout === "Brain (recommended)" ? "brain" : "team");
         //article(layout+"-"+lang);
         createJson(answers.title,lang,type,layout,function(){
-          console.log(colors.green(JSON.stringify(jsonfile.readFileSync(jsonConfig), null, 2)));
           checkInfo();
         });
       });
@@ -133,6 +132,8 @@ var createJson = function(name,lang,type,layout,callback){
 }
 
 var checkInfo = function(){
+  console.log(colors.green(JSON.stringify(jsonfile.readFileSync(jsonConfig), null, 2)));
+
   inquirer.prompt({
     type: "confirm",
     name: "correct",

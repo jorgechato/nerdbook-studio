@@ -24,7 +24,7 @@ gulp.task('concat', function() {
 
 gulp.task('metadata',function(){
   return gulp.src([
-    'book/title.yaml',
+    'book/title.opf',
     'book/notes/**/*',
     'book/metadata/templates/*',
     'lib/**/*'])

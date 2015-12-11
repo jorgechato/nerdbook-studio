@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="2.0" unique-identifier="BookId">
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+<dc:title>NerdBook Studio</dc:title>
+<dc:language>en-us</dc:language>
+<meta name="cover" content="My_Cover" />
+<dc:creator opf:file-as="Chato, Jorge" opf:role="aut">Jorge Chato</dc:creator>
+<dc:publisher>NerdBook Publishing</dc:publisher>
+<dc:subject>Fantasy</dc:subject>
+<dc:date>Dicember 2015</dc:date>
+<dc:description>This is a description</dc:description>
+</metadata>
+<manifest>
+<item id="My_Cover" media-type="image/png" href="..\images\cover.png"/>
+<item id="item1" media-type="application/xhtml+xml" href="temp.htm"/>
+</manifest>
+</package>
