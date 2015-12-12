@@ -5,7 +5,7 @@ notify = require("gulp-notify"),
 open = require('gulp-open');
 
 var exportTo = './public/book';
-var outputDir= './public';
+var outputDir= '../public';
 var base = '.tmp/';
 var book = require('./config.json');
 var exportFrom = '.tmp/'+book.Name+'.tex';
@@ -37,7 +37,7 @@ gulp.task('word', ['metadata','concat'], function() {
 
 gulp.task('pdf', ['metadata','concat'], function() {
   return gulp.src(exportFrom, {read: false})
-  .pipe(shell('pdflatex -shell-escape -output-directory='+outputDir+' -output-format=pdf '+base+'<%= file.relative %>'))
+  .pipe(shell('cd .tmp && pdflatex -shell-escape -output-directory='+outputDir+' -output-format=pdf <%= file.relative %> && cd ..'))
   .pipe(shell('mkdir -p public/tmp && mv ./public/*.pdf ./public/tmp && rm public/*.* && mv ./public/tmp/*.pdf ./public && rmdir ./public/tmp && rm *.pyg'))
   .pipe(notify({
     message : "POW!! your pdf has been created in "+exportTo+'.pdf'}));

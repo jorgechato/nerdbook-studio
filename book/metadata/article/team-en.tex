@@ -23,6 +23,11 @@
 \usepackage{makeidx}
 \makeindex
 
+\newcommand{\myChapter}[1]{
+  \chapter*{\centerline{#1}}
+  \addcontentsline{toc}{chapter}{#1}
+}
+
 \begin{document}
 \renewcommand\refname{References} %Renames "Bibliography" to "References" on ref page
 

@@ -38,16 +38,16 @@ gulp.task('word', ['metadata','concat'], function() {
 
 gulp.task('epub', ['metadata', 'concat'], function() {
   return gulp.src(exportFrom, {read: false})
-  .pipe(shell('cd .tmp && htlatex '+book.Name+'.tex "html,mathplayer,charset=utf-8" " -cunihtf -utf8" "" " -shell-escape" && ebook-convert '+book.Name+'.html '+book.Name+'.epub --cover ../images/cover.png -m '+metadata+' && mv *.epub ../public && cd ./..'))
+  .pipe(shell('cd .tmp && htlatex '+book.Name+'.tex "html,0,notoc*,mathplayer,charset=utf-8" " -cunihtf -utf8" "-cvalidate" " -shell-escape" && ebook-convert '+book.Name+'.html '+book.Name+'.epub --cover ../images/cover.png -m '+metadata+' && mv *.epub ../public && cd ./..'))
   .pipe(notify({
     message : "POW!! your ebook has been created in "+exportTo+'.epub'}));
 });
 
 gulp.task('mobi', ['metadata', 'concat'], function() {
   return gulp.src(exportFrom, {read: false})
-  .pipe(shell('cd .tmp && htlatex '+book.Name+'.tex "html,mathplayer,charset=utf-8" " -cunihtf -utf8" "" " -shell-escape" && ebook-convert '+book.Name+'.html '+book.Name+'.mobi --cover ../images/cover.png -m '+metadata+' && mv *.mobi ../public && cd ./..'))
+  .pipe(shell('cd .tmp && htlatex '+book.Name+'.tex "html,0,notoc*,mathplayer,charset=utf-8" " -cunihtf -utf8" "" " -shell-escape" && ebook-convert '+book.Name+'.html '+book.Name+'.mobi --cover ../images/cover.png -m '+metadata+' && mv *.mobi ../public && cd ./..'))
   .pipe(notify({
-    message : "POW!! your ebook has been created in "+exportTo+'.epub'}));
+    message : "POW!! your ebook has been created in "+exportTo+'.mobi'}));
 });
 
 gulp.task('publish',['word','epub','mobi'],function(){

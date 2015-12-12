@@ -24,6 +24,11 @@
 \makeindex
 \setlength{\parskip}{2pt}
 
+\newcommand{\myChapter}[1]{
+  \chapter*{\centerline{#1}}
+  \addcontentsline{toc}{chapter}{#1}
+}
+
 \pagestyle{empty}
 
 \author{Jorge Chato}

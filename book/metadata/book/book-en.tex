@@ -1,24 +1,54 @@
 \documentclass[ebook,12pt,oneside,openany]{memoir}
 
-\usepackage[english]{babel}
+\usepackage[english]{babel} %language
+\makeatletter
+\let\ifes@LaTeXe\iftrue
+\makeatother
 \usepackage[html]{tex4ht}
 \usepackage{url} %links
 \usepackage[dvips]{color,graphicx}
-\usepackage{imakeidx}
-\makeindex[columns=3, title=Alphabetical Index, intoc]
-%I should check this packages
+\usepackage{makeidx}
+\makeindex
 \usepackage{changepage}
 \usepackage{xspace}
 \setlength{\parskip}{2pt}
 \usepackage{indentfirst}
-%\usepackage[dvips]{graphicx}
-%\usepackage[dvips]{epsfig}
-%\DeclareGraphicsExtensions{.pdf}
-\usepackage{changepage}
+\usepackage{lmodern} %bug fonts
+\usepackage{lettrine} %first letter
+\usepackage[dvipsnames]{xcolor}
+\usepackage[ddmmyyyy]{datetime}
+\usepackage{graphicx}
+\usepackage{epsfig}
+
+\newcommand{\myChapter}[1]{
+  \chapter*{\centerline{#1}}
+  \addcontentsline{toc}{chapter}{#1}
+}
 
 \author{Jorge Chato}
 \title{NerdBook Studio}
 \date{August 2015}
 
 \begin{document}
-\maketitle
+\Css{
+  body > p.noindent{
+    text-indent:1.5em;
+  }
+}
+
+\pagestyle{plain}
+{\pagestyle{empty}
+  \changepage{5cm}{1cm}{-0.5cm}{-0.5cm}{}{-2cm}{}{}{}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth,natwidth=190,natheight=298]{../images/edition.png}\\[20cm]
+    \textcolor{Gray}{\Large FirstName LastName}\\
+    {\Huge \textbf{Title of your awesome book}}\\
+    \textbf{Subtitle or Saga name}\\[15cm]
+    {\small
+      \textcolor{Gray}{\textbf{ePub r0.1}\\}
+      NerdBook \textcolor{Gray}{\today}
+    }
+  \end{center}
+  \clearpage
+}
+\tableofcontents
