@@ -45,7 +45,12 @@ $ gulp publish
 *gulp publish* generate all outputs depending on which environment did you
 choose. **Article** will generate (.pdf and .word), **Book** (.epub, .mobi and
 .word).
-*UPDATE: 2015-12-11* PDF output file working properly, I still working on .epub and .mobi to work with images, math and Spanish language.
+
++ *UPDATE: 2015-12-12* Book enviroment working properly with
+    multilanguage (Español and English). Images working as espected in
+    ebooks.
++ *UPDATE: 2015-12-11* PDF output file working properly, I still working on .epub and .mobi to work with images, math and Spanish language.
+
 ## Templates
 Now with the update (2015-12-09) you have a cool interactive menu to choose the name of the final book, language, write a pdf/word or an ebook and the layout of your project.
 
