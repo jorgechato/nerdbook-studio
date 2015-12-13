@@ -36,15 +36,16 @@ $ gulp
 ```
 If you only need some of the outputs and not all of them here you have a selection of what can you do:
 ```zsh
-$ gulp word
 $ gulp pdf          # only available in Article environment
 $ gulp epub         # only available in Book environment
 $ gulp mobi         # only available in Book environment
 $ gulp publish
+$ gulp store
 ```
 *gulp publish* generate all outputs depending on which environment did you
 choose. **Article** will generate (.pdf and .word), **Book** (.epub, .mobi and
 .word).
+*gulp store* save the final book into a .zip so you can store your books without non important files, it only store the plain text and the final output.
 
 + *UPDATE: 2015-12-12* Book enviroment working properly with
     multilanguage (Español and English). Images working as espected in

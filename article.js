@@ -2,7 +2,8 @@ var gulp = require('gulp'),
 shell = require('gulp-shell'),
 concat = require('gulp-concat'),
 notify = require("gulp-notify"),
-open = require('gulp-open');
+open = require('gulp-open'),
+fullShell = require('shelljs');
 
 var exportTo = './public/book';
 var outputDir= '../public';
@@ -43,7 +44,29 @@ gulp.task('pdf', ['metadata','concat'], function() {
     message : "POW!! your pdf has been created in "+exportTo+'.pdf'}));
 });
 
-gulp.task('publish',['word','pdf'],function(){
+gulp.task('store',['publish'], function() {
+  var folderName = book.Name.toUpperCase()+"-"+new Date().toString().split(' ').splice(1,3).join('-');
+  fullShell.mkdir('-p',folderName);
+  fullShell.mv('-f', [
+    './book',
+    './images',
+    './public',
+    './lib'
+  ], folderName);
+  fullShell.rm('-rf', [
+    'README.md',
+    './node_modules',
+    'package.json',
+    'config.json'
+  ]);
+  if(fullShell.which('zip')){
+    gulp.src(folderName)
+    .pipe(shell('zip -r -X '+folderName+'.zip '+folderName));
+  }
+  fullShell.rm('-rf', './gulpfile.js');
+});
+
+gulp.task('publish',['pdf'],function(){
   return gulp.src(exportTo+".*")
   .pipe(notify({
     message : "POW!! your book has been published in public/<%= file.relative %>"}));

@@ -1,5 +1,4 @@
-var mkdirp = require('mkdirp'),
-notifier = require('node-notifier'),
+var notifier = require('node-notifier'),
 colors = require('colors'),
 Box = require("cli-box"),
 shell = require('shelljs'),
@@ -47,21 +46,10 @@ var ms = Box({
 var folderCreated = false;
 
 setTimeout(function(){
-  folders.forEach(function(folder){
-    mkdirp(folder, function (err) {
-      if (err) console.error(err)
-        else {
-          if (folder == folders[folders.length-1]){
-            folderCreated = true;
-          }
-        }
-    });
-  });
-},50);
-
-setTimeout(function(){
+  shell.mkdir('-p',folders);
+  folderCreated = true;
   shell.rm('-rf',[base.root+'examples',".git",".gitignore"]);
-},55);
+},50);
 
 start();
 
@@ -174,12 +162,16 @@ var output = function(){
       shell.echo(colors.red('You had to install LATEX'));
       allInstalled = false;
     }
-    if(!shell.which('pdflatex')){
+    if(!shell.which('pdflatex') && jsonfile.readFileSync(jsonConfig).Type === 'article'){
       shell.echo(colors.red('You had to install pdflatex'));
       allInstalled = false;
     }
-    if(!shell.which('htlatex')){
+    if(!shell.which('htlatex') && jsonfile.readFileSync(jsonConfig).Type === 'book'){
       shell.echo(colors.red('You had to install htlatex'));
+      allInstalled = false;
+    }
+    if(!shell.which('ebook-convert') && jsonfile.readFileSync(jsonConfig).Type === 'book'){
+      shell.echo(colors.red('You had to install calibre'));
       allInstalled = false;
     }
     if(!shell.which('gulp')){
