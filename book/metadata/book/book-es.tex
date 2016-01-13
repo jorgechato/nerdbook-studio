@@ -1,10 +1,11 @@
 \documentclass[ebook,12pt,oneside,openany]{memoir}
 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[spanish, es-tabla]{babel} %language
 \makeatletter
 \let\ifes@LaTeXe\iftrue
-\makeatother
-\usepackage[html]{tex4ht}
+\makeatother\usepackage[html]{tex4ht}
 \usepackage{url} %links
 \usepackage[dvips]{color,graphicx}
 \usepackage{makeidx}
@@ -34,7 +35,13 @@
   body > p.noindent{
     text-indent:1.5em;
   }
+  body > p{
+    margin:0.2em;
+  }
 }
+
+\include{./cover}
+
 
 \pagestyle{plain}
 {\pagestyle{empty}
