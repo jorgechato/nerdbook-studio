@@ -39,7 +39,7 @@ gulp.task('word', ['metadata','concat'], function() {
 gulp.task('pdf', ['metadata','concat'], function() {
   return gulp.src(exportFrom, {read: false})
   .pipe(shell('cd .tmp && pdflatex -shell-escape -output-directory='+outputDir+' -output-format=pdf <%= file.relative %> && cd ..'))
-  .pipe(shell('mkdir -p public/tmp && mv -t ./public/tmp ./public/*.pdf ./public/*.toc && rm public/*.* && mv ./public/tmp/* ./public && rmdir ./public/tmp'))
+  .pipe(shell('mkdir -p public/tmp && touch ./public/'+book.Name+'.toc && mv -t ./public/tmp ./public/*.pdf ./public/*.toc && rm public/*.* && mv ./public/tmp/* ./public && rmdir ./public/tmp'))
   .pipe(notify({
     message : "POW!! your pdf has been created in "+exportTo+'.pdf'}));
 });
