@@ -1,31 +1,53 @@
 \documentclass[a4paper,oneside]{report}
 
 \usepackage[english]{babel}
-\usepackage{amsmath} %math
-\usepackage{mathenv}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{textcomp}
-\usepackage{minted} %write code
-\usepackage{longtable}
-\usepackage{multirow}
-\usepackage{pifont}
-\usepackage{changepage}
-\usepackage{listings}
-\usepackage{url} %links
-\usepackage{xspace}
-\usepackage{xtab}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{pdflscape}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{changepage}
+\usepackage{url} %links
+\usepackage{xspace}
 \usepackage[pdftex]{graphicx} %for embedding images
-\usepackage[bookmarks, colorlinks=false, pdfborder={0 0 0}, pdftitle={<pdf title here>}, pdfauthor={<author's name here>}, pdfsubject={<subject here>}, pdfkeywords={<keywords here>}]{hyperref} %for creating links in the pdf version and other additional pdf attributes, no effect on the printed document
-\DeclareGraphicsExtensions{.pdf}
 \usepackage{makeidx}
+\usepackage[svgnames,hyperref,table]{xcolor}
+\usepackage{listings}
+\usepackage{pxfonts}
 \makeindex
 
 \newcommand{\myChapter}[1]{
   \chapter*{\centerline{#1}}
   \addcontentsline{toc}{chapter}{#1}
+}
+
+\def\tabularxcolumn#1{m{#1}}
+\newcommand\crule[3][black]{\textcolor{#1}{\rule{#2}{#3}}}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{dkpink}{rgb}{0.58,0,0.82}
+\definecolor{dkred}{HTML}{DB1244}
+\definecolor{number}{HTML}{009999}
+\definecolor{variable}{HTML}{660E7A}
+
+\usepackage{listings}
+\lstset{
+  language=Python,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  keywordstyle=\bfseries,
+  commentstyle=\color{gray},
+  stringstyle=\color{dkred},
+  numberstyle=\tiny\color{gray},
+  emph=[1]{if,and,or,else,new,function},
+  emphstyle=[1]\color{number},
+  emph=[2]{},
+  emphstyle=[2]\color{variable},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2,
 }
 
 \begin{document}
